@@ -1,4 +1,5 @@
 include cld2/internal/*.h
 include cld2/public/*.h
 include README*
+include LICENSE
 include requirements.txt
