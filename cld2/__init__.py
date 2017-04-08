@@ -327,7 +327,7 @@ def detect(utf8Bytes, isPlainText=True, hintTopLevelDomain=None,  # noqa
         namedtuple of `(language_name, language_code, percent, score)`.
 
         `language_name` is the internal CLD2 name for the language.
-        `language_code` is a ISO 639-1 lanuguage code.
+        `language_code` is a ISO 639-1 language code.
         `percent` is what percentage of the original text was detected as.
         `score` is the confidence score for that language.
 
@@ -338,7 +338,7 @@ def detect(utf8Bytes, isPlainText=True, hintTopLevelDomain=None,  # noqa
         `offset` is where in the text the vector starts from.
         `num_bytes` is the number of bytes the vector extends to.
         `language_name` is the internal CLD2 name for the language.
-        `language_code` is a ISO 639-1 lanuguage code.
+        `language_code` is a ISO 639-1 language code.
     """
 
     cld2 = _full_cld2 if useFullLangTables else _lite_cld2
