@@ -9,9 +9,7 @@ case "$TRAVIS_OS_NAME" in
     pyenv local $PYTHONVERSION
     ;;
 "linux")
-    if [[ "$TRAVIS_PYTHON" == "pypy" ]]; then
-        sudo apt-get install pypy
-    fi
+    # nothing to install
     ;;
 *)
     echo "Unknown travis OS $TRAVIS_OS_NAME"
