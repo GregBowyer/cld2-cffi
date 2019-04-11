@@ -246,9 +246,10 @@ def detect(utf8Bytes, isPlainText=True, hintTopLevelDomain=None,  # noqa
 
     Parameters
     ----------
-    utf8Bytes : unicode
-        The text to detect, encoded as UTF-8 bytes (required).  If this is not
-        valid UTF-8, then an ValueError is raised.
+    utf8Bytes : str or bytes
+        The text to detect, as a Unicode string (`str`) in Python 3, or
+        encoded as UTF-8 bytes (`bytes` in Python 3 or `str` in Python 2).
+        If passed as bytes and not valid UTF-8, then a ValueError is raised.
 
     isPlainText : bool, optional
         If False, then the input is HTML and CLD will skip HTML tags, expand
