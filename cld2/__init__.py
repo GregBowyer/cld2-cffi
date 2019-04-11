@@ -123,7 +123,7 @@ from cffi import FFI
 
 
 _DEBUG = False
-_COMPILER_ARGS = ['-ggdb'] if _DEBUG else ['-O2']
+_COMPILER_ARGS = ['-Wno-narrowing', '-ggdb'] if _DEBUG else ['-Wno-narrowing', '-O2']
 
 # pylint: disable=invalid-name
 _full_ffi = FFI()
