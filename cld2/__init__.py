@@ -124,6 +124,12 @@ from cffi import FFI
 
 _DEBUG = False
 _COMPILER_ARGS = ['-ggdb'] if _DEBUG else ['-O2']
+_LINK_ARGS = []
+if platform.system() == "Darwin":
+    # Python builds from Anaconda are built for macOS<10.9
+    # When building on macOS 10.9+ with Xcode 10+, this flag is required.
+    _COMPILER_ARGS.append("-stdlib=libc++")
+    _LINK_ARGS.append("-stdlib=libc++")
 
 # pylint: disable=invalid-name
 _full_ffi = FFI()
@@ -187,12 +193,15 @@ if platform.system() == 'Windows':
 _full_cld2 = _full_ffi.verify('#include <binding_decls.h>',
                               sources=_full_sources,
                               include_dirs=_include_dirs,
-                              extra_compile_args=_COMPILER_ARGS)
+                              extra_compile_args=_COMPILER_ARGS,
+                              extra_link_args=_LINK_ARGS)
+
 
 _lite_cld2 = _lite_ffi.verify('#include <binding_decls.h>',
                               sources=_lite_sources,
                               include_dirs=_include_dirs,
-                              extra_compile_args=_COMPILER_ARGS)
+                              extra_compile_args=_COMPILER_ARGS,
+                              extra_link_args=_LINK_ARGS)
 
 
 def _establish_languages(ffi, cld):
