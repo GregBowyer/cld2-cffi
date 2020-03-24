@@ -384,16 +384,16 @@ def detect(utf8Bytes, isPlainText=True, hintTopLevelDomain=None,  # noqa
                              "see cld.LANGUAGES for recognized language " +
                              "names (note that currently external languages " +
                              "cannot be hinted)")
-        elif ret_code == 2:
+        if ret_code == 2:
             raise ValueError("Unrecognized encoding hint code " +
                              "(got '%s'); " % hintEncoding +
                              "see cld.ENCODINGS for recognized encodings")
-        elif ret_code == 3:
+        if ret_code == 3:
             raise ValueError("input contains invalid UTF-8 around byte " +
                              "%d (of %d)" % (
                                  cld_results.valid_prefix_bytes,
                                  len(utf8Bytes) - 1))
-        elif ret_code != 0:
+        if ret_code != 0:
             raise ValueError("Unknown Error !")
 
         results = cld_results.results
