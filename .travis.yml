@@ -35,7 +35,7 @@ matrix:
       language: generic
       env:
         - TRAVIS_PYTHON_VERSION=2.7
-        - PYTHONVERSION=2.7.12
+        - PYTHONVERSION=2.7.17
 
 install:
     - ./ci/travis-install.sh
